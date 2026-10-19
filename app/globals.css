@@ -1,0 +1,647 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-heading: 'Plus Jakarta Sans', 'Poppins', system-ui, -apple-system, sans-serif;
+  --font-body: 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #050508;
+  color: #FFFFFF;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: transparent;
+  color: #FFFFFF;
+  font-family: var(--font-body);
+}
+
+/* Scroll performance & rendering boost */
+section {
+  contain: content;
+}
+
+.transform-gpu {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Fluid Responsive Container with 60px Left & Right Padding on Desktop/Big Screens */
+.site-container {
+  width: 100%;
+  max-width: 1720px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(20px, 4.5vw, 60px);
+  padding-right: clamp(20px, 4.5vw, 60px);
+}
+
+@media (min-width: 1024px) {
+  .site-container {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+
+::selection {
+  background-color: #8B5CF6;
+  color: #FFFFFF;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(11, 5, 29, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.35);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8B5CF6;
+}
+
+/* Metallic White 3D Bevel Typography */
+.metallic-text, .sphere-heading {
+  color: #FFFFFF;
+  text-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.9),
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    0 8px 30px rgba(139, 92, 246, 0.45);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+/* Exact Reference: Glossy Violet Pill Button with Curved Specular Rim Highlight */
+/* Exact Reference: Glossy Violet Pill Button with Curved Specular Rim Highlight */
+/* Exact Reference: Electric Purple-to-Violet Pill Button with Specular Rim */
+.glow-pill-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.05rem 3.25rem;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #7028E4 0%, #A825E8 50%, #B828E6 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 1.0625rem;
+  letter-spacing: -0.01em;
+  border: 1px solid rgba(236, 178, 255, 0.45);
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.75),
+    0 8px 24px rgba(112, 40, 228, 0.45);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+.glow-pill-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.85);
+  background: linear-gradient(90deg, #7E34E8 0%, #B434EC 50%, #C438EC 100%);
+  box-shadow: 
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.95),
+    0 12px 32px rgba(168, 37, 232, 0.6),
+    0 0 35px rgba(184, 40, 230, 0.5);
+}
+
+/* Button with Arrow or Content (.roundBtn across the website) */
+.roundBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 1.15rem;
+  background: linear-gradient(90deg, #7028E4 0%, #A825E8 50%, #B828E6 100%);
+  padding: 0.75rem 1rem 0.75rem 2.2rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(236, 178, 255, 0.45);
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.75),
+    0 8px 24px rgba(112, 40, 228, 0.45);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+.roundBtn span {
+  color: #FFFFFF;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  z-index: 3;
+}
+
+.roundBtn .arrow-circle {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 3;
+}
+
+.roundBtn:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.85);
+  background: linear-gradient(90deg, #7E34E8 0%, #B434EC 50%, #C438EC 100%);
+  box-shadow: 
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.95),
+    0 12px 32px rgba(168, 37, 232, 0.6),
+    0 0 35px rgba(184, 40, 230, 0.5);
+}
+
+.roundBtn:hover .arrow-circle {
+  background: #FFFFFF;
+  color: #7028E4;
+  transform: scale(1.08) rotate(45deg);
+}
+
+/* Discount / Highlight Tag Pill (like "-10%" in image) */
+.tag-pill-blue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #7028E4 0%, #B828E6 100%);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 16px rgba(168, 37, 232, 0.5);
+}
+
+/* Underline Link Hover Animation */
+.underlineBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.35rem;
+  color: #FFFFFF;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.underlineBtn::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #7028E4, #B828E6);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.underlineBtn:hover {
+  color: #E879F9;
+}
+
+.underlineBtn:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Primary Button (Header CTA & Form CTAs) - Exactly matching reference gradient */
+.primary-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.65rem;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #7028E4 0%, #A825E8 50%, #B828E6 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  border: 1px solid rgba(236, 178, 255, 0.45);
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.75),
+    0 6px 20px rgba(112, 40, 228, 0.45);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+.primary-btn:hover {
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.85);
+  background: linear-gradient(90deg, #7E34E8 0%, #B434EC 50%, #C438EC 100%);
+  transform: translateY(-1.5px) scale(1.02);
+  box-shadow: 
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.95),
+    0 10px 28px rgba(168, 37, 232, 0.6),
+    0 0 35px rgba(184, 40, 230, 0.5);
+}
+
+/* =========================================================================
+   EXACT NAVYA TECHNOMEDIA STYLE SPOTLIGHT & 3D NEON CORNER GLOW CARDS
+   ========================================================================= */
+
+.navya-card-wrapper {
+  position: relative;
+  border-radius: 1.75rem;
+  background: rgba(10, 10, 14, 0.95);
+  transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.navya-card-wrapper:hover {
+  transform: translateY(-6px) rotateX(2deg) rotateY(-2deg);
+}
+
+/* Outer Border & Spotlight Line Highlight using exact CSS mask */
+.navya-card-wrapper::before,
+.navya-card-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  border-radius: calc(1.75rem + 1.5px);
+  pointer-events: none;
+  z-index: 10;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 1.5px;
+  transition: opacity 0.4s ease;
+}
+
+/* Subtle default border */
+.navya-card-wrapper::before {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Cursor reactive spotlight glowing border with vibrant multi-stop colorful gradient */
+.navya-card-wrapper::after {
+  opacity: 0;
+  background: radial-gradient(
+    360px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    var(--card-neon-color, #C084FC) 0%,
+    rgba(255, 255, 255, 0.9) 25%,
+    var(--card-secondary-color, #E879F9) 45%,
+    transparent 75%
+  );
+}
+
+.navya-card-wrapper:hover::after {
+  opacity: 1;
+}
+
+/* Ambient Corner Light Bloom that bleeds out onto the canvas - vibrant and colorful */
+.navya-card-glow-bloom {
+  position: absolute;
+  inset: -16px;
+  border-radius: 2.5rem;
+  background: radial-gradient(
+    340px circle at var(--mouse-x, 80%) var(--mouse-y, 80%),
+    var(--card-neon-color, #C084FC) 0%,
+    var(--card-secondary-color, #E879F9) 40%,
+    transparent 70%
+  );
+  filter: blur(32px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.45s ease;
+}
+
+.navya-card-wrapper:hover .navya-card-glow-bloom {
+  opacity: 0.9;
+}
+
+/* Inner Background Spotlight wash - colourful illumination without dark muddiness */
+.navya-card-inner {
+  position: relative;
+  z-index: 2;
+  border-radius: 1.75rem;
+  background: radial-gradient(
+    480px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    var(--card-bg-spot, rgba(192, 132, 252, 0.28)) 0%,
+    rgba(255, 255, 255, 0.04) 40%,
+    rgba(10, 8, 18, 0.95) 85%
+  );
+  height: 100%;
+}
+
+/* Vivid, Rich Navya Color Themes - purely colorful, neon and luminous */
+.navya-purple {
+  --card-neon-color: #E879F9;
+  --card-secondary-color: #A855F7;
+  --card-bg-spot: rgba(217, 70, 239, 0.28);
+}
+
+.navya-orange {
+  --card-neon-color: #FB923C;
+  --card-secondary-color: #F59E0B;
+  --card-bg-spot: rgba(249, 115, 22, 0.28);
+}
+
+.navya-green {
+  --card-neon-color: #4ADE80;
+  --card-secondary-color: #10B981;
+  --card-bg-spot: rgba(34, 197, 94, 0.28);
+}
+
+.navya-yellow {
+  --card-neon-color: #FDE047;
+  --card-secondary-color: #F59E0B;
+  --card-bg-spot: rgba(234, 179, 8, 0.28);
+}
+
+.navya-cyan {
+  --card-neon-color: #38BDF8;
+  --card-secondary-color: #06B6D4;
+  --card-bg-spot: rgba(6, 182, 212, 0.28);
+}
+
+.navya-pink {
+  --card-neon-color: #F472B6;
+  --card-secondary-color: #EC4899;
+  --card-bg-spot: rgba(236, 72, 153, 0.28);
+}
+
+/* Universal Glassmorphism Classes */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.35), 0 20px 40px -15px rgba(11, 60, 120, 0.25);
+}
+
+.glass-panel-interactive {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.3), 0 16px 36px -12px rgba(11, 60, 120, 0.2);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-interactive:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.45);
+  transform: translateY(-4px);
+  box-shadow: inset 0 1px 2px 0 rgba(255, 255, 255, 0.5), 0 25px 50px -15px rgba(11, 60, 120, 0.3);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Category Filter Active Pill matching Hero gradient */
+.filter-pill-active {
+  background: linear-gradient(180deg, #8B5CF6 0%, #7C3AED 45%, #6D28D9 100%) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.8),
+    0 4px 16px rgba(124, 58, 237, 0.45) !important;
+}
+
+.glass-modal {
+  background: linear-gradient(135deg, rgba(24, 11, 56, 0.88) 0%, rgba(15, 6, 38, 0.92) 50%, rgba(8, 3, 20, 0.96) 100%);
+  backdrop-filter: blur(36px) saturate(200%);
+  -webkit-backdrop-filter: blur(36px) saturate(200%);
+  border: 1px solid rgba(192, 132, 252, 0.25);
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.22),
+    0 24px 60px -12px rgba(0, 0, 0, 0.85),
+    0 0 50px -10px rgba(124, 58, 237, 0.25);
+}
+
+.glass-range {
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.08);
+  height: 6px;
+  border-radius: 9999px;
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.glass-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #E879F9, #A855F7);
+  cursor: pointer;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.8), 0 2px 6px rgba(0, 0, 0, 0.4);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.glass-range::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 18px rgba(217, 70, 239, 0.95), 0 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.glass-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #E879F9, #A855F7);
+  cursor: pointer;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.8);
+}
+
+/* Nav Link Hover Wipe */
+.nav-link-hover {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link-hover::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #A855F7, #EC4899, #7928CA);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link-hover:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Ambient Floating Keyframes for background glows */
+@keyframes ambientFloat {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(45px, -35px) scale(1.08) rotate(4deg);
+  }
+  66% {
+    transform: translate(-35px, 35px) scale(0.94) rotate(-3deg);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.2);
+  }
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.animate-ambient-float {
+  animation: ambientFloat 14s ease-in-out infinite;
+}
+
+.bg-radial-vignette {
+  background: radial-gradient(circle at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.75) 100%);
+}
+
+/* Swiper custom overrides */
+.swiper-pagination-bullet {
+  background: #64748B !important;
+  opacity: 0.4 !important;
+  width: 8px !important;
+  height: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #A825E8 !important;
+  box-shadow: 0 0 12px rgba(168, 37, 232, 0.6) !important;
+  opacity: 1 !important;
+  width: 24px !important;
+  border-radius: 4px !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* Sticky Folding Cards Stack Effect */
+.sticky-card-stack {
+  position: sticky;
+  top: 110px;
+  transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+/* Digital Gravity Infinite Tech Marquee */
+@keyframes techMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes techMarqueeReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-tech-marquee {
+  display: flex;
+  width: max-content;
+  animation: techMarquee 38s linear infinite;
+}
+
+.animate-tech-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: techMarqueeReverse 42s linear infinite;
+}
+
+.animate-tech-marquee:hover,
+.animate-tech-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* Full solid opaque dropdown with luxury blur and zero background see-through */
+.dropdown-full-blur {
+  background-color: #080313 !important;
+  backdrop-filter: blur(48px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(48px) saturate(200%) !important;
+  border: 1px solid rgba(168, 85, 247, 0.4) !important;
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.98),
+    0 0 50px rgba(124, 58, 237, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Swiper Equal Height Slide Cards */
+.swiper-wrapper {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.swiper-slide {
+  height: auto !important;
+  display: flex !important;
+  align-items: stretch !important;
+}
